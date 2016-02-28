@@ -1,0 +1,66 @@
+@import 'math';
+$type-scale: 1.25;
+$type-serif-factor: 19 / 16;
+
+$font-sans: 'Fira Sans', sans-serif;
+$font-serif: 'Vollkorn', serif;
+
+@mixin font-sans {
+  font-family: $font-sans;
+
+  & strong {
+    font-weight: 700;
+  }
+}
+
+@mixin font-sans-n4 {
+  @include font-sans;
+  font-weight: 400;
+}
+
+@mixin font-sans-n7 {
+  @include font-sans;
+  font-weight: 700;
+}
+
+@mixin font-serif {
+  font-family: $font-serif;
+
+  & strong {
+    font-weight: 700;
+  }
+}
+
+@mixin font-serif-n4 {
+  @include font-serif;
+  font-weight: 400;
+}
+
+@mixin font-serif-n7 {
+  @include font-serif;
+  font-weight: 700;
+}
+
+h4 {
+  @include font-sans-n7;
+  font-size: $type-scale * 1rem;
+}
+
+h3 {
+  @include font-sans-n7;
+  font-size: power($type-scale, 2) * 1rem;
+}
+
+h2 {
+  @include font-sans-n7;
+  font-size: power($type-scale, 3) * 1rem;
+
+  &.serif {
+    font-size: power($type-scale, 3) * $type-serif-factor * 1rem;
+  }
+}
+
+h1 {
+  @include font-sans-n7;
+  font-size: power($type-scale, 4) * 1rem;
+}

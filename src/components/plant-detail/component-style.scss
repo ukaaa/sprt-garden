@@ -1,0 +1,81 @@
+@import '../../assets/scss/colors';
+@import '../../assets/scss/type';
+@import '../../assets/scss/responsive';
+
+$padding: 2rem;
+
+:host {
+  display: block;
+  height: 100%;
+}
+
+.details {
+  background: $col-white;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+
+  header {
+    background: $col-grey;
+    color: $col-white;
+    padding: $padding;
+    flex-shrink: 0;
+
+    &.high-contrast {
+      color: $col-type-body;
+      $col-shadow: rgba($col-type-body, .1);
+      border-bottom: 1px dotted $col-shadow;
+    }
+  }
+
+  .meta {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    height: 100%;
+
+    .left,
+    .right {
+      width: 100%;
+    }
+
+    .left {
+      padding: $padding;
+      flex-shrink: 0;
+    }
+
+    .right {
+      padding: 0 $padding $padding $padding;
+      flex-grow: 1;
+    }
+
+    @media (min-width: $screen-lg-min) {
+      flex-direction: row;
+
+      .left {
+        width: 50%;
+      }
+
+      .right {
+        padding: $padding $padding $padding 0;
+      }
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+
+  h2 {
+    @include font-serif-n4;
+    margin-bottom: 0;
+    font-style: italic;
+    font-size: power($type-scale, 3) * $type-serif-factor * 1rem;
+  }
+
+  h3 {
+    opacity: .625;
+    @include font-sans-n4;
+  }
+}
