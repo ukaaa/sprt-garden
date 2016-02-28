@@ -1,0 +1,11 @@
+{
+  "dependencies": {},
+  "devDependencies": {},
+  "ambientDependencies": {
+    "angular2": "github:DefinitelyTyped/DefinitelyTyped/angular2/angular2.d.ts#cdd23d1c610cc97f38bcd6e402b6da5edeea1bae",
+    "es6-shim": "github:DefinitelyTyped/DefinitelyTyped/es6-shim/es6-shim.d.ts#4de74cb527395c13ba20b438c3a7a419ad931f1c",
+    "jwt-decode": "github:DefinitelyTyped/DefinitelyTyped/jwt-decode/jwt-decode.d.ts#e2e1e881bb57431fbbe9289ac4da1fea928dc84c",
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#1469ae2d0c260c082517bfb971be8c14e2389fe5",
+    "md5": "github:DefinitelyTyped/DefinitelyTyped/js-md5/md5.d.ts#6e996ab243e91e705ac6f9cec3a8bf37ccb5409f"
+  }
+}

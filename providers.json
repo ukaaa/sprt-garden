@@ -1,0 +1,69 @@
+{
+  "facebook-login": {
+    "provider": "facebook",
+    "module": "passport-facebook",
+    "clientID": "470247079848531",
+    "clientSecret": "16d685bc825c1382ea3ce6c7c9160491",
+    "callbackURL": "/api/auth/facebook/callback",
+    "authPath": "/api/auth/facebook",
+    "callbackPath": "/api/auth/facebook/callback",
+    "successRedirect": "/api/auth/completed",
+    "scope": ["email"]
+  },
+  "facebook-link": {
+    "provider": "facebook",
+    "module": "passport-facebook",
+    "clientID": "470247079848531",
+    "clientSecret": "16d685bc825c1382ea3ce6c7c9160491",
+    "callbackURL": "/link/facebook/callback",
+    "authPath": "/link/facebook",
+    "callbackPath": "/link/facebook/callback",
+    "successRedirect": "/auth/fblinksuccess",
+    "failureRedirect": "/login",
+    "scope": ["email", "user_likes"],
+    "link": true,
+    "failureFlash": true
+  },
+  "google-login": {
+    "provider": "google",
+    "module": "passport-google-oauth",
+    "strategy": "OAuth2Strategy",
+    "clientID": "1056829065984-cnojjnv9c3vrq0um4fe2lh6uteu8n0ia.apps.googleusercontent.com",
+    "clientSecret": "R2OZi8RIz9g7D7_epGIYV3Dw",
+    "callbackURL": "/api/auth/google/callback",
+    "authPath": "/api/auth/google",
+    "callbackPath": "/api/auth/google/callback",
+    "successRedirect": "/api/auth/completed",
+    "failureRedirect": "/login",
+    "scope": ["email", "profile"],
+    "failureFlash": true
+  },
+  "google-link": {
+    "provider": "google",
+    "module": "passport-google-oauth",
+    "strategy": "OAuth2Strategy",
+    "clientID": "1056829065984-cnojjnv9c3vrq0um4fe2lh6uteu8n0ia.apps.googleusercontent.com1056829065984-cnojjnv9c3vrq0um4fe2lh6uteu8n0ia.apps.googleusercontent.com",
+    "clientSecret": "R2OZi8RIz9g7D7_epGIYV3Dw",
+    "callbackURL": "/link/google/callback",
+    "authPath": "/link/google",
+    "callbackPath": "/link/google/callback",
+    "successRedirect": "/auth/fblinksuccess",
+    "failureRedirect": "/login",
+    "scope": ["email", "profile"],
+    "link": true,
+    "failureFlash": true
+  },
+  "twitter-login": {
+    "provider": "twitter",
+    "authScheme": "oauth",
+    "module": "passport-twitter",
+    "callbackURL": "/auth/twitter/callback",
+    "authPath": "/auth/twitter",
+    "callbackPath": "/auth/twitter/callback",
+    "successRedirect": "/auth/account",
+    "failureRedirect": "/login",
+    "consumerKey": "{twitter-consumer-key}",
+    "consumerSecret": "{twitter-consumer-secret}",
+    "failureFlash": true
+  }
+}

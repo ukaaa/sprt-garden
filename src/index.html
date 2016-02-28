@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<base href="/">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="icon" type="image/png" href="http://cdn.zentrick.com/internal/janc/favicon%20(1).ico">
+	<title>Zentrick Moose Studio</title>
+	<!-- inject:js -->
+	<!-- endinject -->
+
+	<!-- inject:css -->
+	<link rel="stylesheet" href="./assets/scss/app.css">
+	<!-- endinject -->
+
+	<!-- For testing :x -->
+	<!-- <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css"> -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<app>
+		<p style='position:fixed; left:50%; top:50%; transform:translate(-50%,-50%)'><small>Loading …</small></p>
+	</app>
+	<script>
+		<!-- @if isDev -->
+		/**
+		 * The package name `js` matches the folder structure inside `/build`.
+		 * And the `main` property points to the app entry file - `bootstrap.js`.
+		 */
+		System.config({
+			packages: { 'js': { main: 'bootstrap.js' } }
+		});
+
+		System.import('js')
+			.catch(console.error.bind(console));
+		<!-- @endif -->
+
+		<!-- @if isProd -->
+		/**
+		 * The bundle name `js/app.js` matches the file under the `/build` folder.
+		 * It also maps the entry dependecy module - `bootstrap`.
+		 */
+		System.config({
+			bundles: { 'js/app.js': ['bootstrap'] }
+		});
+
+		System.import('bootstrap')
+			.catch(console.error.bind(console));
+		<!-- @endif -->
+	</script>
+</body>
+</html>
