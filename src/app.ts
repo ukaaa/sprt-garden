@@ -2,10 +2,6 @@ import {Component, View} from 'angular2/core';
 import {MapComponent} from './components/map/';
 import {PlantDetailComponent} from './components/plant-detail/';
 
-let getRandomElementFromArray = (a: Array<any>) => {
-	return a[Math.floor(Math.random() * a.length)];
-};
-
 @Component({
 	selector: 'app',
 	providers: []
@@ -14,11 +10,20 @@ let getRandomElementFromArray = (a: Array<any>) => {
 	directives: [MapComponent, PlantDetailComponent],
 	template: `
 		<main>
-			<sprt-map class="left"></sprt-map>
-			<sprt-plant-detail class="right" [plantId]="plantId"></sprt-plant-detail>
+			<section class="left">
+				<sprt-map [config]="mapConfig" (hover)="onShapeHover($event)"></sprt-map>
+			</section>
+			<section class="right">
+				<sprt-plant-detail *ngIf="plantId" [plantId]="plantId"></sprt-plant-detail>
+			</section>
 		</main>`
 })
 
 export class AppComponent {
-	plantId = getRandomElementFromArray([10699, 214902, 11491]);
+	plantId: number;
+	mapConfig = '[{"id":"one","plantId":10699},{"id":"two","plantId":214902},{"id":"three","plantId":11491},{"id":"four","plantId":42883}]';
+
+	onShapeHover (plantId: any) {
+		this.plantId = plantId;
+	}
 }

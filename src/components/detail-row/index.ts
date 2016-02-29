@@ -7,11 +7,11 @@ import {Component, View, Input} from 'angular2/core';
 @View({
 	directives: [DetailRowComponent],
 	template: `
-		<div *ngIf="_data">
+		<div *ngIf="_data && _data.length">
 			<label>{{title}}</label>
-			<p *ngIf="_isDataString">{{_data}}</p>
+			<p *ngIf="_isDataString" [innerHTML]="style(_data)"></p>
 			<ul *ngIf="!_isDataString">
-				<li *ngFor="#item of _data">{{item}}</li>
+				<li *ngFor="#item of _data" [innerHTML]="style(item)"></li>
 			</ul>
 		</div>
 	`,
@@ -23,25 +23,26 @@ export class DetailRowComponent {
 	private _isDataString = false;
 
 	@Input()
+	latin: boolean;
+
+	@Input()
 	title: string;
 
 	@Input()
 	set data (value: string | Array<string>) {
-		let parsedValue = value;
-
-		if (typeof value === 'string') {
-			this._isDataString = true;
-		} else {
-			if (value.length === 1) {
-				this._isDataString = true;
-				parsedValue = value[0];
-			}
-		}
-
-		this._data = parsedValue;
+		this._isDataString = typeof value === 'string';
+		this._data = value;
 	};
 
 	get data () {
 		return this._data;
 	};
+
+	style (text: string) {
+		if (this.latin) {
+			return '<span style="font-style:italic">' + text + '</span>';
+		}
+
+		return text;
+	}
 }

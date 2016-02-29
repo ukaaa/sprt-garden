@@ -43,25 +43,17 @@ let rgbToHsl = (rgb: any) => {
 @View({
 	directives: [DetailRowComponent, NgClass],
 	template: `
-		<p class="" *ngIf="!data">Loading plant detail …</p>
-
-		<div class="details" *ngIf="data">
+		<div class="card" *ngIf="data">
 			<header [ngClass]="{'high-contrast':isHighContrast(data.color)}" [ngStyle]="{background:data.color}">
-				<h2>{{data.name}}</h2>
+				<h2 class="serif">{{data.name}}</h2>
 				<h3 *ngIf="data.commonNames && data.commonNames[0]">{{data.commonNames[0]}}</h3>
 			</header>
 
 			<section class="meta">
-				<div class="left">
-					<img *ngIf="data.media && data.media[0]" src="{{data.media[0]}}">
-				</div>
-				<div class="right">
-					<sprt-detail-row [title]="'Common names'" [data]="data.commonNames"></sprt-detail-row>
-					<sprt-detail-row [title]="'Synonyms'" [data]="data.synonyms"></sprt-detail-row>
-					<sprt-detail-row [title]="'Family'" [data]="data.family"></sprt-detail-row>
-					<sprt-detail-row [title]="'Genus'" [data]="data.genus"></sprt-detail-row>
-					<sprt-detail-row [title]="'Details'" [data]="data.details"></sprt-detail-row>
-				</div>
+				<sprt-detail-row [title]="'Common names'" [data]="data.commonNames"></sprt-detail-row>
+				<sprt-detail-row [title]="'Synonyms'" [data]="data.synonyms" [latin]="true"></sprt-detail-row>
+				<sprt-detail-row [title]="'Details'" [data]="data.details"></sprt-detail-row>
+				<img *ngIf="data.media && data.media[0]" src="{{data.media[0]}}">
 			</section>
 		</div>
 	`,
@@ -77,6 +69,7 @@ export class PlantDetailComponent {
 	@Input()
 	public set plantId (id: number) {
 		this._plantId = id;
+		this.data = undefined;
 
 		this._plantsService
 			.getPlantById(id)

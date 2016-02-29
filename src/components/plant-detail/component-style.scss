@@ -1,81 +1,63 @@
 @import '../../assets/scss/colors';
 @import '../../assets/scss/type';
 @import '../../assets/scss/responsive';
+@import '../../assets/scss/style';
 
-$padding: 2rem;
+$padding: 1.5rem;
 
 :host {
   display: block;
   height: 100%;
+  width: 100%;
 }
 
-.details {
+.card {
+  @include soft-shadow;
   background: $col-white;
   display: flex;
   flex-direction: column;
   max-height: 100%;
-  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  border-radius: 2px;
 
   header {
     background: $col-grey;
     color: $col-white;
     padding: $padding;
     flex-shrink: 0;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
 
     &.high-contrast {
       color: $col-type-body;
-      $col-shadow: rgba($col-type-body, .1);
-      border-bottom: 1px dotted $col-shadow;
+      box-shadow: 0 1px $col-light-grey;
+
+      h3 {
+        opacity: .375;
+      }
+    }
+
+    h2 {
+      @include font-serif-n4;
+      margin-bottom: 0;
+      font-style: italic;
+      // font-size: power($type-scale, 3) * $type-serif-factor * 1rem;
+    }
+
+    h3 {
+      @include font-sans-n4;
+      opacity: .625;
+      margin-bottom: 0;
     }
   }
 
   .meta {
-    display: flex;
-    flex-direction: column;
     overflow: auto;
     height: 100%;
-
-    .left,
-    .right {
-      width: 100%;
-    }
-
-    .left {
-      padding: $padding;
-      flex-shrink: 0;
-    }
-
-    .right {
-      padding: 0 $padding $padding $padding;
-      flex-grow: 1;
-    }
-
-    @media (min-width: $screen-lg-min) {
-      flex-direction: row;
-
-      .left {
-        width: 50%;
-      }
-
-      .right {
-        padding: $padding $padding $padding 0;
-      }
-    }
-
-    img {
-      width: 100%;
-    }
+    padding: $padding;
   }
 
-  h2 {
-    @include font-serif-n4;
-    margin-bottom: 0;
-    font-style: italic;
-    font-size: power($type-scale, 3) * $type-serif-factor * 1rem;
-  }
-
-  h3 {
-    opacity: .625;
-    @include font-sans-n4;
+  img {
+    width: 100%;
+    margin-top: 1rem;
   }
 }

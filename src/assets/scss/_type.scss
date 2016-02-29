@@ -1,16 +1,16 @@
 @import 'math';
-$type-scale: 1.25;
+$type-scale: 16 / 14;
 $type-serif-factor: 19 / 16;
 
 $font-sans: 'Fira Sans', sans-serif;
 $font-serif: 'Vollkorn', serif;
 
+strong {
+  font-weight: 700;
+}
+
 @mixin font-sans {
   font-family: $font-sans;
-
-  & strong {
-    font-weight: 700;
-  }
 }
 
 @mixin font-sans-n4 {
@@ -25,10 +25,6 @@ $font-serif: 'Vollkorn', serif;
 
 @mixin font-serif {
   font-family: $font-serif;
-
-  & strong {
-    font-weight: 700;
-  }
 }
 
 @mixin font-serif-n4 {
