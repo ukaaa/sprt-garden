@@ -15,7 +15,7 @@ import IPlantsService from './interface';
 
 @Injectable()
 export class PlantsService implements IPlantsService {
-	private _apiRoot: string = '../data/';
+	private _apiRoot: string = 'http://localhost:9271/';
 
 	constructor (private _http: Http) {
 		//

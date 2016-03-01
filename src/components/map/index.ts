@@ -6,14 +6,7 @@ import {Component, View, Input, Output, ElementRef, EventEmitter} from 'angular2
 })
 @View({
 	directives: [],
-	template: `
-		<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1000 1000" style="enable-background:new 0 0 1000 1000;" xml:space="preserve">
-			<rect id="one" x="240" y="120" width="160" height="400"/>
-			<rect id="two" x="240" y="520" width="160" height="160"/>
-			<rect id="three" x="500" y="220" width="260" height="240"/>
-			<rect id="four" x="600" y="680" width="220" height="140"/>
-		</svg>
-	`,
+	templateUrl: 'http://localhost:9271/maps/garden.svg',
 	styleUrls: ['component-style.css']
 })
 
