@@ -6,7 +6,7 @@
   },
   "private": true,
   "version": "0.0.1",
-  "description": "Garden App for Villa Spruit",
+  "description": "shit's on fire yo",
   "scripts": {
     "postinstall": "typings install",
     "start": "node_modules/.bin/gulp dev"
